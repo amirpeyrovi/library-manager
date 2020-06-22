@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <title th:text="${pageConfig.getPageTitle()}"></title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" th:href="@{/plugins/font-awesome/css/font-awesome.min.css}">
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
+    <!-- bootstrap rtl -->
+    <link rel="stylesheet" th:href="@{/dist/css/bootstrap-rtl.min.css}">
+    <!-- template rtl version -->
+    <link rel="stylesheet" th:href="@{/dist/css/custom-style.css}">
+
+    <!-- jQuery -->
+    <script th:src="@{/plugins/jquery/jquery.min.js}"></script>
+    <!-- Bootstrap 4 -->
+    <script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <!-- AdminLTE App -->
+    <script th:src="@{/dist/js/adminlte.min.js}"></script>
+</head>
+
+<body>
+
+<!-- navbar -->
+<nav th:fragment="navbar" class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/" class="nav-link">خانه</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">تماس</a>
+        </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+        <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="جستجو" aria-label="Search">
+            <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</nav>
+<!-- /.navbar -->
+
+<!-- Content Header (Page header) -->
+<div th:fragment="contentHeader" class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark" th:text="${pageConfig.getPageTitle()}"></h1>
+            </div><!-- /.col -->
+            <!--<div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a href="#">خانه</a></li>
+                    <li class="breadcrumb-item active"></li>
+                </ol>
+            </div>--><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+
+<!-- Main Sidebar Container -->
+<!-- /.sidebar -->
+<aside th:fragment="sidebar" class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="/" class="brand-link">
+        <img th:src="@{/dist/img/AdminLTELogo.png}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light">پنل مدیریت</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link active" th:if="${pageConfig.getPageName() == 'dashboard'}">
+                            <i class="nav-icon fa fa-th"></i>
+                            <p>داشبورد</p>
+                        </a>
+                        <a href="/" class="nav-link" th:unless="${pageConfig.getPageName() == 'dashboard'}">
+                            <i class="nav-icon fa fa-th"></i>
+                            <p>داشبورد</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/admin/" class="nav-link active" th:if="${pageConfig.getPageName() == 'admins'}">
+                            <i class="nav-icon fa fa-th"></i>
+                            <p>کاربران</p>
+                        </a>
+                        <a href="admin/" class="nav-link" th:unless="${pageConfig.getPageName() == 'admins'}">
+                            <i class="nav-icon fa fa-th"></i>
+                            <p>کاربران</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fa fa-dashboard"></i>
+                            <p>
+                                صفحات شروع
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>صفحه فعال</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>صفحه غیر فعال</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+    </div>
+    <!-- /.sidebar -->
+</aside>
+<!-- /.sidebar -->
+
+<!-- Control Sidebar -->
+<aside th:fragment="ctlSidebar" class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+    <div class="p-3">
+        <h5>Title</h5>
+        <p>Sidebar content</p>
+    </div>
+</aside>
+
+<!-- Main Footer -->
+<footer th:fragment="footer" class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+        Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>CopyLeft &copy; 2018 <a href="http://github.com/hesammousavi/">حسام موسوی</a>.</strong>
+</footer>
+
+<!-- REQUIRED SCRIPTS -->
+<div th:fragment="reqScript">
+
+</div>
+</body>
+</html>

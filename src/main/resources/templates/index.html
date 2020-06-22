@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment/layout.html::head"></head>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!-- navbar -->
+  <div th:replace="fragment/layout.html::navbar"></div>
+
+  <!-- Main Sidebar Container -->
+  <div th:replace="fragment/layout.html::sidebar"></div>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div th:replace="fragment/layout.html::contentHeader"></div>
+
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6">
+
+          </div>
+          <!-- /.col-md-6 -->
+          <div class="col-lg-6">
+
+          </div>
+          <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <div th:replace="fragment/layout.html::ctlSidebar"></div>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <div th:replace="fragment/layout.html::footer"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<div th:replace="fragment/layout.html::reqScript"></div>
+
+</body>
+</html>
